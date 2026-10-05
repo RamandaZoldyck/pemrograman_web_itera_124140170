@@ -1,0 +1,583 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffd4e9;
+    color: #313131;
+}
+
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    height: 75px;
+
+    padding: 0 50px;
+
+    background-color: #bd8ba3;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ffe4e4;
+}
+
+
+/* Nama Kantin */
+
+.header h1 {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #383333;
+}
+
+
+/* Account */
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* Nama + role */
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+}
+
+.account-name {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #383333;
+}
+
+.account-role {
+    font-size: 12px;
+
+    color: #353535;
+}
+
+
+/* Foto akun */
+
+.account-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+}
+
+/* main container */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 40px 25px 60px;
+}
+
+
+/* Judul halaman */
+
+.page-title {
+    font-size: 20px;
+
+    margin-bottom: 25px;
+
+    color: #222;
+}
+
+
+/* dashboard */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: 330px 1fr;
+
+    gap: 25px;
+}
+
+
+/* content box */
+
+.content-box {
+    background-color: #fdfbfb;
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.content-box h3 {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+    color: #333;
+}
+
+
+/* tambah barang */
+
+.tambah-barang {
+    height: fit-content;
+}
+
+
+/* Form */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Label */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #444;
+}
+
+
+/* Input */
+
+.form-group input {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9d9d9;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    background-color: #ffffff;
+}
+
+
+/* Input ketika diklik */
+
+.form-group input:focus {
+    border-color: #ffc593;
+
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.08);
+}
+
+
+/* Error */
+
+.form-group small {
+    display: block;
+
+    margin-top: 5px;
+
+    min-height: 16px;
+
+    color: #dc3545;
+
+    font-size: 12px;
+}
+
+
+/* Tombol tambah */
+
+.btn-tambah {
+    width: 100%;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #ffc593;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-tambah:hover {
+    background-color: #ffc593;
+}
+
+
+/* Keranjang */
+
+.keranjang {
+    min-width: 0;
+}
+
+
+/* Header keranjang */
+
+.content-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.content-header h3 {
+    margin-bottom: 0;
+}
+
+#jumlahItem {
+    font-size: 13px;
+
+    color: #888;
+
+    background-color: #f3f3f3;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+}
+
+
+/* Wrapper tabel */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* Tabel */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+
+/* Header tabel */
+
+thead {
+    background-color: #f7f7f7;
+}
+
+th {
+    padding: 13px 10px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color: #555;
+
+    border-bottom: 1px solid #ddd;
+
+    white-space: nowrap;
+}
+
+
+/* Isi tabel */
+
+td {
+    padding: 14px 10px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #444;
+
+    white-space: nowrap;
+}
+
+
+/* Hover baris */
+
+tbody tr:hover {
+    background-color: #fafafa;
+}
+
+
+/* Pembayaran */
+
+.pembayaran {
+    grid-column: 1 / -1;
+}
+
+
+/* Isi pembayaran */
+
+.payment-content {
+    display: grid;
+
+    grid-template-columns: 1fr 350px;
+
+    gap: 50px;
+
+    align-items: start;
+}
+
+
+/* Detail pembayaran */
+
+.payment-details {
+    max-width: 600px;
+}
+
+
+/* Baris pembayaran */
+
+.payment-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 15px;
+}
+
+
+/* Total akhir */
+
+.payment-row.total {
+    margin-top: 5px;
+
+    padding: 18px 0;
+
+    border-bottom: none;
+
+    font-size: 18px;
+}
+
+.payment-row.total strong {
+    color: #ffc593;
+
+    font-size: 20px;
+}
+
+
+/* Input Pembayaran */
+
+.payment-input label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #444;
+}
+
+
+#uangBayar {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9d9d9;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#uangBayar:focus {
+    border-color: #ffc593;
+
+    box-shadow: 0 0 0 2px rgba(255, 197, 147, 0.08);
+}
+
+
+/* Kembalian */
+
+.kembalian {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 8px;
+}
+
+.kembalian span {
+    font-size: 14px;
+
+    color: #555;
+}
+
+.kembalian strong {
+    font-size: 17px;
+
+    color: #333;
+}
+
+
+/* Tombol Reset */
+
+.btn-reset {
+    width: 100%;
+    height: 35px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #a3a2a3;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-reset:hover {
+    background-color: #222;
+}
+
+
+/* Footer */
+
+.footer {
+    width: 100%;
+
+    padding: 25px;
+
+    background-color: #bd8ba3;
+
+    border-top: 1px solid #e5e5e5;
+
+    text-align: center;
+
+    color: #4d4d4d;
+
+    font-size: 13px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .pembayaran {
+        grid-column: auto;
+    }
+
+    .payment-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .payment-details {
+        max-width: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .header {
+        height: 65px;
+
+        padding: 0 20px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .account-role {
+        display: none;
+    }
+
+    .container {
+        padding: 25px 15px 40px;
+    }
+
+    .page-title {
+        font-size: 22px;
+    }
+
+    .content-box {
+        padding: 20px;
+    }
+}
+
