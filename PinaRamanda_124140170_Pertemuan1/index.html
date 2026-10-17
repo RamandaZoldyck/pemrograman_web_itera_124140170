@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kantin Ceria - Kasir</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>Kantin Ceria</h1>
+
+        <div class="account">
+
+            <div class="account-info">
+                <span class="account-name">Ramanda Zoldyck</span>
+                <span class="account-role">Petugas Kasir</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <h2 class="page-title">
+            Transaksi detail
+        </h2>
+
+
+        <div class="dashboard">
+
+
+            <!-- TAMBAHH BARANG -->
+
+            <section class="content-box tambah-barang">
+
+                <h3>Tambah Barang</h3>
+
+                <form id="formBarang">
+
+                    <div class="form-group">
+
+                        <label for="namaBarang">
+                            Nama Barang
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaBarang"
+                            placeholder="Masukkan nama barang"
+                        >
+
+                        <small id="errorNama"></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hargaBarang">
+                            Harga Satuan
+                        </label>
+
+                        <input
+                            type="number"
+                            id="hargaBarang"
+                            placeholder="Minimal Rp 500"
+                            min="500"
+                            step="1"
+                        >
+
+                        <small id="errorHarga"></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="qtyBarang">
+                            Jumlah / Qty
+                        </label>
+
+                        <input
+                            type="number"
+                            id="qtyBarang"
+                            placeholder="Minimal 1"
+                            min="1"
+                            step="1"
+                        >
+
+                        <small id="errorQty"></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-tambah"
+                    >
+                        Tambah Barang
+                    </button>
+
+                </form>
+
+            </section>
+
+
+
+            <!-- KERANJANG -->
+
+            <section class="content-box keranjang">
+
+                <div class="content-header">
+
+                    <h3>Keranjang Belanja</h3>
+
+                    <div class="cart-actions">
+
+                        <span id="jumlahItem">
+                            0 Item
+                        </span>
+
+                        <button
+                            type="button"
+                            id="resetButton"
+                            class="btn-reset"
+                        >
+                            Reset
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Barang</th>
+                                <th>Harga Satuan</th>
+                                <th>Qty</th>
+                                <th>Subtotal</th>
+                                <th>Aksi</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="keranjangBody">
+
+                            <!-- Data barang dari JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PEMBAYARAN -->
+
+            <section class="content-box pembayaran">
+
+                <h3>Pembayaran</h3>
+
+
+                <div class="payment-content">
+
+                    <div class="payment-details">
+
+                        <div class="payment-row">
+
+                            <span>Total Belanja</span>
+
+                            <strong id="totalBelanja">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="payment-row">
+
+                            <span>Diskon</span>
+
+                            <strong id="diskon">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="payment-row total">
+
+                            <span>Total Akhir</span>
+
+                            <strong id="totalAkhir">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-input">
+
+                        <label for="uangBayar">
+                            Uang Bayar
+                        </label>
+
+                        <input
+                            type="number"
+                            id="uangBayar"
+                            placeholder="Masukkan nominal uang"
+                            min="0"
+                        >
+
+
+                        <div class="kembalian">
+
+                            <span>Kembalian</span>
+
+                            <strong id="kembalian">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            Nama: pina ramanda <br>
+            NIM: 124140170 <br>
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
