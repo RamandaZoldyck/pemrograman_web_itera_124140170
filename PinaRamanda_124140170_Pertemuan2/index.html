@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bloomie, personal dashboard sederhana untuk mahasiswa.">
+  <title>Bloomie — Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Bloomie beranda">
+        <span class="brand-mark">B</span>
+        <span>Bloomie<small>STUDENT SPACE</small></span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Navigasi dashboard">
+        <a class="nav-link active" href="#overview">Ringkasan</a>
+        <a class="nav-link" href="#tasks">Tugas kuliah</a>
+        <a class="nav-link" href="#notes">Catatan</a>
+        <a class="nav-link" href="#campus">Info kampus</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-tip">
+          <strong>Tips produktif</strong>
+          <p>Mulai dari satu tugas kecil. Konsisten lebih penting daripada sempurna.</p>
+        </div>
+        <span class="sidebar-footer">Dibuat untuk hari kuliah yang lebih teratur.</span>
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content" id="overview">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Hai, Mahasiswa!</h1>
+          <p class="subheading">Ayo mulai hari yang produktif!</p>
+        </div>
+        <div class="topbar-actions">
+          <button
+            class="icon-button"
+            id="refreshButton"
+            type="button"
+            title="Muat ulang informasi API"
+            aria-label="Muat ulang informasi API"
+          >↻</button>
+        </div>
+      </header>
+
+      <!-- KUTIPAN MOTIVASI -->
+      <section class="quote-banner" aria-label="Kutipan">
+        <div class="quote-symbol">“</div>
+        <div>
+          <p class="quote-label">MOTIVASI HARI INI</p>
+          <p class="quote-text" id="quoteText">
+            Sedikit demi sedikit, lama-lama menjadi bukit.
+          </p>
+          <p class="quote-author" id="quoteAuthor">— Bloomie</p>
+        </div>
+      </section>
+
+      <!-- RINGKASAN TUGAS -->
+      <section class="stats-grid" aria-label="Ringkasan tugas">
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Total tugas</span>
+            <span class="stat-icon pink">▤</span>
+          </div>
+          <strong id="totalTasks">0</strong>
+          <small>Semua tugas tersimpan</small>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Belum selesai</span>
+            <span class="stat-icon orange">◷</span>
+          </div>
+          <strong id="pendingTasks">0</strong>
+          <small>Masih perlu dikerjakan</small>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span>Selesai</span>
+            <span class="stat-icon green">✓</span>
+          </div>
+          <strong id="completedTasks">0</strong>
+          <small>Langkah kecil yang berarti</small>
+        </article>
+
+        <article class="stat-card weather-card">
+          <div class="stat-top">
+            <span>Cuaca</span>
+            <span class="stat-icon blue">☼</span>
+          </div>
+          <div class="weather-line">
+            <strong id="weatherTemp">--°</strong>
+            <span id="weatherEmoji">⛅</span>
+          </div>
+          <small id="weatherDesc">Mengambil data cuaca...</small>
+        </article>
+      </section>
+
+      <!-- TUGAS DAN CATATAN -->
+      <div class="content-grid">
+
+        <!-- TUGAS KULIAH -->
+        <section class="panel tasks-panel" id="tasks">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">STAY ON TRACK</p>
+              <h2>Tugas kuliah</h2>
+              <p class="panel-subtitle">Satu per satu, semua bisa selesai.</p>
+            </div>
+            <span class="pill" id="taskCountPill">0 tugas</span>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <label class="sr-only" for="taskTitle">Nama tugas</label>
+            <input
+              id="taskTitle"
+              name="title"
+              placeholder="Contoh: Kerjakan laporan praktikum..."
+              maxlength="120"
+              required
+            >
+
+            <div class="form-row">
+              <label class="sr-only" for="taskCourse">Mata kuliah</label>
+              <input
+                id="taskCourse"
+                name="course"
+                placeholder="Mata kuliah"
+                maxlength="60"
+              >
+
+              <label class="sr-only" for="taskDue">Tenggat</label>
+              <input
+                id="taskDue"
+                name="dueDate"
+                type="date"
+                aria-label="Tanggal tenggat"
+              >
+
+              <button class="primary-button" type="submit">＋ Tambah</button>
+            </div>
+          </form>
+
+          <div class="task-toolbar">
+            <div class="filter-tabs" role="group" aria-label="Filter tugas">
+              <button type="button" class="filter-button active" data-filter="all">Semua</button>
+              <button type="button" class="filter-button" data-filter="pending">Aktif</button>
+              <button type="button" class="filter-button" data-filter="completed">Selesai</button>
+            </div>
+            <button type="button" class="text-button" id="loadSampleTasks">
+              Isi contoh tugas
+            </button>
+          </div>
+
+          <div class="task-list" id="taskList" aria-live="polite"></div>
+          <p class="empty-state" id="emptyTasks">Belum ada tugas</p>
+        </section>
+
+        <!-- CATATAN SINGKAT -->
+        <section class="panel notes-panel" id="notes">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">QUICK THOUGHTS</p>
+              <h2>Catatan singkat</h2>
+              <p class="panel-subtitle">Simpan ide sebelum terlupa.</p>
+            </div>
+            <span class="note-icon">✎</span>
+          </div>
+
+          <form id="noteForm" class="note-form">
+            <label class="sr-only" for="noteText">Isi catatan</label>
+            <textarea
+              id="noteText"
+              rows="3"
+              maxlength="500"
+              placeholder="Ide, pengingat, atau hal penting hari ini..."
+            ></textarea>
+
+            <div class="note-form-bottom">
+              <span id="noteCharCount">0/500</span>
+              <button class="primary-button" type="submit">Simpan catatan</button>
+            </div>
+          </form>
+
+          <div id="notesList" class="notes-list" aria-live="polite"></div>
+          <p class="empty-state" id="emptyNotes">Belum ada catatan</p>
+        </section>
+
+      </div>
+
+      <!-- CAMPUS CORNER -->
+      <section class="panel campus-panel" id="campus">
+
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">CAMPUS CORNER</p>
+            <h2>Sudut informasi</h2>
+          </div>
+          <span class="api-badge">
+            <span class="status-dot"></span>
+            Informasi API
+          </span>
+        </div>
+
+        <div class="api-grid">
+
+          <!-- CUACA -->
+          <article class="api-card">
+            <div class="api-card-head">
+              <span class="api-icon weather-icon">☼</span>
+              <span class="api-tag">CUACA</span>
+            </div>
+
+            <h3>Cuaca sekitar kampus</h3>
+
+            <p id="weatherDetail">
+              Sedang mengambil informasi cuaca...
+            </p>
+
+            <small id="weatherUpdated">
+              Koordinat: -5.36, 105.31
+            </small>
+          </article>
+
+          <!-- KUTIPAN ACAK -->
+          <article class="api-card">
+            <div class="api-card-head">
+              <span class="api-icon quote-icon">❝</span>
+              <span class="api-tag">INSPIRASI</span>
+            </div>
+
+            <h3>Kutipan acak</h3>
+
+            <p id="quoteDetail">
+              Sedang memuat kutipan...
+            </p>
+
+            <small id="quoteDetailAuthor">
+              — Memuat penulis
+            </small>
+          </article>
+
+          <!-- INSPIRASI TUGAS -->
+          <article class="api-card">
+            <div class="api-card-head">
+              <span class="api-icon todo-icon">✓</span>
+              <span class="api-tag">TO-DO</span>
+            </div>
+
+            <h3>Inspirasi daftar tugas</h3>
+
+            <p id="apiTodoText">
+              Sedang mengambil inspirasi tugas...
+            </p>
+
+            <small id="apiTodoStatus">
+              Contoh tugas dari JSONPlaceholder
+            </small>
+
+            <button
+              type="button"
+              class="outline-button"
+              id="addApiTodo"
+            >＋ Tambahkan sebagai tugas</button>
+          </article>
+
+        </div>
+
+        <p class="api-status" id="apiStatus" role="status">
+          Menghubungkan ke API publik...
+        </p>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="page-footer">
+        <span>Pina Ramanda_124140170</span>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
