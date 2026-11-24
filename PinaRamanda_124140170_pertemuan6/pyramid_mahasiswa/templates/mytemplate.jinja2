@@ -1,0 +1,21 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<h1>{{ project }}</h1>
+<p>REST API Mahasiswa dan Matakuliah (Pyramid + PostgreSQL).</p>
+
+<table>
+  <thead>
+    <tr><th>Method</th><th>Endpoint</th><th>Keterangan</th></tr>
+  </thead>
+  <tbody>
+    {% for method, path, desc in endpoints %}
+    <tr>
+      <td><code>{{ method }}</code></td>
+      <td><code>{{ path }}</code></td>
+      <td>{{ desc }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

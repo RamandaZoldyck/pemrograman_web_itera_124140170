@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Pyramid Mahasiswa{% endblock %}</title>
+  <link rel="stylesheet" href="{{ request.static_url('pyramid_mahasiswa:static/theme.css') }}">
+</head>
+<body>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
