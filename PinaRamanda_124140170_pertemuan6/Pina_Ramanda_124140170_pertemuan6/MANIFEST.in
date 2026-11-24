@@ -1,0 +1,3 @@
+include README.md
+include *.ini
+recursive-include pyramid_mahasiswa *.ini *.mako *.jinja2 *.css *.py
